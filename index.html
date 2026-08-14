@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serge Bourgeois | Quantum & Post-Quantum Engineering</title>
+    
+    <!-- CSS INTÉGRÉ POUR UN CONTRÔLE SOUPE ET AUTONOME -->
+    <style>
+        :root {
+            --bg-main: #0f172a;       /* Bleu ardoise de fond, lumineux et pro */
+            --bg-card: #1e293b;       /* Fond des sections et cartes */
+            --bg-input: #0b132b;      /* Fond des champs de saisie */
+            --text-main: #f8fafc;     /* Texte principal blanc cassé */
+            --text-muted: #94a3b8;    /* Texte secondaire gris-bleu */
+            --accent-green: #00ff87;  /* Vert éclatant pour les actions et succès */
+            --border: #334155;        /* Couleur des bordures nettes */
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* HERO SECTION */
+        header {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge-polytech {
+            background: rgba(0, 255, 135, 0.1);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.05em;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* SECTIONS DE PRODUITS */
+        .section-innovation {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .tag-sector {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent-green);
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin: 0 0 15px 0;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 8px;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: transparent;
+            color: var(--accent-green);
+            border: 1px solid var(--accent-green);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-link:hover {
+            background: rgba(0, 255, 135, 0.1);
+            box-shadow: 0 0 12px rgba(0, 255, 135, 0.2);
+        }
+
+        /* FORMULAIRE DE CONTACT */
+        form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--bg-input);
+            border: 1px solid var(--border);
+            color: #fff;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: var(--accent-green);
+            outline: none;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background: var(--accent-green);
+            color: var(--bg-input);
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background: #00cc6a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- ENTÊTE GLOBAL -->
+        <header style="text-align: center; padding: 40px 0 60px 0; border-bottom: 1px solid var(--border);">
+            <!-- Emplacement de votre logo (PNG ou JPEG) -->
+            <img src="logo_engineering.png" alt="Serge Bourgeois Engineering Logo" style="max-height: 80px; width: auto; margin-bottom: 25px;">
+            <div class="badge-polytech">IR. SERGE BOURGEOIS (FPMs - AIMS)</div>
+            <h1 style="margin-top: 15px;">Advanced Systems Engineering</h1>
+            <p class="subtitle">Designing quantum architectures and post-quantum resilient frameworks.</p>
+        </header>
+
+        <!-- PILLIER 1 : LE BREVET QUANTIQUE -->
+        <section class="section-innovation">
+            <span class="tag-sector">Quantum Hardware Innovation</span>
+            <h2>Aperiodic Lattice Quantum Processor</h2>
+            <p>Presentation of a core industrial patent addressing qubit coherence stability and noise reduction. By leveraging an optimized <strong>aperiodic lattice pattern with custom matched impedance routing</strong>, this hardware architecture introduces new scaling thresholds for deep-tech quantum processors.</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">🤝 Open to joint-ventures, industrial partnerships, and R&D laboratory licensing agreements.</p>
+        </section>
+
+        <!-- PILLIER 2 : SECURE_CRYPTO SUITE -->
+        <section class="section-innovation">
+            <span class="tag-sector">Post-Quantum Cryptographic Gateways</span>
+            <h2>SECURE_CRYPTO Framework</h2>
+            <p>A mission-critical encryption solution running an 8-dimensional geometric manifold shield. It intercepts, wraps, and safeguards structural high-value flows with zero byte expansion, providing immediate defense against upcoming quantum decryption vectors.</p>
+            
+            <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                <!-- Lien vers votre vitrine bancaire actuelle -->
+                <a href="../bank_sector/index.html" class="btn-link">🏦 Financial Core Banking Module (ISO 20022)</a>
+                <!-- Future extension Défense -->
+                <a href="#contact" class="btn-link" style="border-color: #64748b; color: #94a3b8;">🛡️ Tactical Military Flows (Defense Sector)</a>
+            </div>
+        </section>
+
+        <!-- FORMULAIRE DE CONTACT INTELLIGENT -->
+        <section id="contact" style="margin-top: 50px;">
+            <h2 style="text-align: center; border: none;">Initiate Technical Request</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 30px;">
+                Secure validation workflow. For out-of-band token transmissions, a verified WhatsApp Business channel is available.
+            </p>
+
+            <!-- Remplacer l'action par votre ID Formspree définitif quand vous l'aurez -->
+            <form action="https://formspree.io" method="POST">
+                <div class="form-group">
+                    <label for="sector">Primary Area of Interest *</label>
+                    <select id="sector" name="requested_framework" required>
+                        <option value="" disabled selected>-- Select an engineering division --</option>
+                        <option value="QUANTUM_HARDWARE_PATENT">Quantum Hardware: Aperiodic Lattice Processor Licensing</option>
+                        <option value="SECURE_CRYPTO_BANKING">Secure_Crypto: Banking Infrastructure Validation (Sandbox)</option>
+                        <option value="SECURE_CRYPTO_DEFENSE">Secure_Crypto: Tactical Defense Streams Implementation</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required placeholder="John Doe">
+                </div>
+
+                <div class="form-group">
+                    <label for="org">Institution / Organization *</label>
+                    <input type="text" id="org" name="institution" required placeholder="University, Bank, or Ministry">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Professional Email *</label>
+                    <input type="email" id="email" name="email" required placeholder="j.doe@institution.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Direct Phone Number (for OOB WhatsApp verification) *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+32 4XX XX XX XX">
+                </div>
+
+                <div class="form-group">
+                    <label for="msg">Infrastructure Constraints & Objectives *</label>
+                    <textarea id="msg" name="message" rows="5" required placeholder="Specify your structural requirements or technical inquiry details..."></textarea>
+                </div>
+
+                <button type="submit">Submit Engineering Request</button>
+            </form>
+        </section>
+
+    </div>
+
+</body>
+</html>
