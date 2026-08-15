@@ -191,9 +191,9 @@
             
             <div style="display: flex; gap: 15px; flex-wrap: wrap;">
                 <!-- Lien vers votre vitrine bancaire actuelle -->
-                <a href="../bank_sector/index.html" class="btn-link">🏦 Financial Core Banking Module (ISO 20022)</a>
-                <!-- Future extension Défense -->
-                <a href="#contact" class="btn-link" style="border-color: #64748b; color: #94a3b8;">🛡️ Tactical Military Flows (Defense Sector)</a>
+                <a href="https://sbourgeois1.github.io/secure-crypto-vitrine/" class="btn-link">🏦 Financial Core Banking Module (ISO 20022)</a>
+                <!-- Lien vers votre vitrine actuel -->
+                <a href="https://sbourgeois1.github.io/secure_crypto_defense/" class="btn-link" style="border-color: #64748b; color: #94a3b8;">🛡️ Tactical Military Flows (Defense Sector)</a>
             </div>
         </section>
 
@@ -205,7 +205,7 @@
             </p>
 
             <!-- Remplacer l'action par votre ID Formspree définitif quand vous l'aurez -->
-            <form action="https://formspree.io" method="POST">
+            <form action="https://formspree.io/f/xoealggo" method="POST">
                 <div class="form-group">
                     <label for="sector">Primary Area of Interest *</label>
                     <select id="sector" name="requested_framework" required>
@@ -248,4 +248,35 @@
     </div>
 
 </body>
+<script>
+    document.getElementById('form-engineering-main').addEventListener('submit', function(event) {
+        event.preventDefault(); // Bloque la redirection sauvage de Formspree
+        
+        const btn = document.getElementById('btn-submit-main');
+        btn.innerText = "TRANSMITTING DATA TO SECURE NODE...";
+        btn.disabled = true;
+
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+
+        // Envoi asynchrone transparent
+        fetch(this.action, {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: { 
+                'Accept': 'application/json', 
+                'Content-Type': 'application/json' 
+            }
+        })
+        .then(() => {
+            alert("Thank you! Your engineering request has been transmitted. Serge Bourgeois will contact you shortly.");
+            window.location.reload(); // Rafraîchit la page proprement
+        })
+        .catch(() => {
+            // En cas de problème réseau, on rafraîchit quand même pour ne pas bloquer l'écran
+            window.location.reload();
+        });
+    });
+</script>
+
 </html>
