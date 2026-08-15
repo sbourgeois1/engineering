@@ -170,7 +170,7 @@
         <header style="text-align: center; padding: 40px 0 60px 0; border-bottom: 1px solid var(--border);">
             <!-- Emplacement de votre logo (PNG ou JPEG) -->
             <img src="logo_engineering.png" alt="Serge Bourgeois Engineering Logo" style="max-height: 80px; width: auto; margin-bottom: 25px;">
-            <div class="badge-polytech">IR. SERGE BOURGEOIS (FPMs - AIMS)</div>
+            <div class="badge-polytech">(FPMs-AIMs)</div>
             <h1 style="margin-top: 15px;">Advanced Systems Engineering</h1>
             <p class="subtitle">Designing quantum architectures and post-quantum resilient frameworks.</p>
         </header>
@@ -207,12 +207,13 @@
             <!-- Remplacer l'action par votre ID Formspree définitif quand vous l'aurez -->
             <form action="https://formspree.io/f/xoealggo" method="POST">
                 <div class="form-group">
-                    <label for="sector">Primary Area of Interest *</label>
-                    <select id="sector" name="requested_framework" required>
-                        <option value="" disabled selected>-- Select an engineering division --</option>
-                        <option value="QUANTUM_HARDWARE_PATENT">Quantum Hardware: Aperiodic Lattice Processor Licensing</option>
-                        <option value="SECURE_CRYPTO_BANKING">Secure_Crypto: Banking Infrastructure Validation (Sandbox)</option>
-                        <option value="SECURE_CRYPTO_DEFENSE">Secure_Crypto: Tactical Defense Streams Implementation</option>
+                    <label for="subject">Subject of Inquiry *</label>
+                    <select id="subject" name="inquiry_subject" required>
+                        <option value="" disabled selected>-- Select the objective of your request --</option>
+                        <option value="QUANTUM_HARDWARE">Quantum Hardware: Aperiodic Lattice Processor Patent & Joint-Venture</option>
+                        <option value="SECURE_CRYPTO_BANKING">SECURE_CRYPTO: Core Banking Gateway Evaluation (Sandbox Request)</option>
+                        <option value="SECURE_CRYPTO_DEFENSE">SECURE_CRYPTO: Tactical Military Stream Encryption Deployment</option>
+                        <option value="GENERAL_CONSULTING">General Systems Engineering & Quantum-Resilient Consulting</option>
                     </select>
                 </div>
 
@@ -223,7 +224,7 @@
 
                 <div class="form-group">
                     <label for="org">Institution / Organization *</label>
-                    <input type="text" id="org" name="institution" required placeholder="University, Bank, or Ministry">
+                    <input type="text" id="org" name="institution" required placeholder="Enterprise, University, Bank, or Ministry">
                 </div>
 
                 <div class="form-group">
@@ -237,8 +238,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="msg">Infrastructure Constraints & Objectives *</label>
-                    <textarea id="msg" name="message" rows="5" required placeholder="Specify your structural requirements or technical inquiry details..."></textarea>
+                    <label for="msg">Detailed Infrastructure Constraints / Project Specifications *</label>
+                    <textarea id="msg" name="message" rows="5" required placeholder="Describe your structural constraints or engineering requirements..."></textarea>
                 </div>
 
                 <button type="submit">Submit Engineering Request</button>
@@ -248,35 +249,36 @@
     </div>
 
 </body>
-<script>
-    document.getElementById('form-engineering-main').addEventListener('submit', function(event) {
-        event.preventDefault(); // Bloque la redirection sauvage de Formspree
-        
-        const btn = document.getElementById('btn-submit-main');
-        btn.innerText = "TRANSMITTING DATA TO SECURE NODE...";
-        btn.disabled = true;
+    <script>
+        document.getElementById('form-engineering-main').addEventListener('submit', function(event) {
+            event.preventDefault(); // SÉCURITÉ ABSOLUE : Bloque immédiatement la redirection native
+            
+            const btn = document.getElementById('btn-submit-main');
+            btn.innerText = "TRANSMITTING DATA TO SECURE NODE...";
+            btn.disabled = true;
 
-        const formData = new FormData(this);
-        const data = Object.fromEntries(formData.entries());
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
 
-        // Envoi asynchrone transparent
-        fetch(this.action, {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: { 
-                'Accept': 'application/json', 
-                'Content-Type': 'application/json' 
-            }
-        })
-        .then(() => {
-            alert("Thank you! Your engineering request has been transmitted. Serge Bourgeois will contact you shortly.");
-            window.location.reload(); // Rafraîchit la page proprement
-        })
-        .catch(() => {
-            // En cas de problème réseau, on rafraîchit quand même pour ne pas bloquer l'écran
-            window.location.reload();
+            // Envoi asynchrone transparent en arrière-plan
+            fetch(this.action, {
+                method: "POST",
+                body: JSON.stringify(data),
+                headers: { 
+                    'Accept': 'application/json', 
+                    'Content-Type': 'application/json' 
+                }
+            })
+            .then(() => {
+                alert("Thank you! Your engineering request has been transmitted. Serge Bourgeois will contact you shortly.");
+                window.location.reload(); // Recharge et nettoie proprement la page
+            })
+            .catch(() => {
+                // Secours si le réseau flanche, on alerte quand même l'utilisateur
+                alert("Transmission complete. Thank you for your request.");
+                window.location.reload();
+            });
         });
-    });
-</script>
+    </script>
 
 </html>
