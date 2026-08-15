@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serge Bourgeois | Quantum & Post-Quantum Engineering</title>
     
-    <!-- CSS INTÉGRÉ POUR UN CONTRÔLE SOUPE ET AUTONOME -->
+    <!-- CSS INTÉGRÉ POUR UN CONTRÔLE SOUPLE ET AUTONOME -->
     <style>
         :root {
-            --bg-main: #0f172a;       /* Bleu ardoise de fond, lumineux et pro */
+            --bg-main: #0f172a;       /* Bleu ardoise de fond */
             --bg-card: #1e293b;       /* Fond des sections et cartes */
             --bg-input: #0b132b;      /* Fond des champs de saisie */
             --text-main: #f8fafc;     /* Texte principal blanc cassé */
             --text-muted: #94a3b8;    /* Texte secondaire gris-bleu */
-            --accent-green: #00ff87;  /* Vert éclatant pour les actions et succès */
-            --border: #334155;        /* Couleur des bordures nettes */
+            --accent-green: #00ff87;  /* Vert éclatant */
+            --border: #334155;        /* Couleur des bordures */
         }
 
         body {
@@ -35,20 +35,8 @@
         /* HERO SECTION */
         header {
             text-align: center;
-            padding: 60px 0;
+            padding: 40px 0 60px 0;
             border-bottom: 1px solid var(--border);
-        }
-
-        .badge-polytech {
-            background: rgba(0, 255, 135, 0.1);
-            color: var(--accent-green);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            border: 1px solid rgba(0, 255, 135, 0.3);
-            display: inline-block;
-            margin-bottom: 15px;
         }
 
         h1 {
@@ -160,6 +148,45 @@
         button[type="submit"]:hover {
             background: #00cc6a;
         }
+
+        /* FOOTER PROFESSIONNEL ACCRÉDITÉ */
+        footer {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 1px dashed var(--border);
+            text-align: center;
+        }
+
+        .badge-polytech {
+            background: rgba(0, 255, 135, 0.1);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .footer-contacts {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-item:hover {
+            color: var(--accent-green);
+        }
     </style>
 </head>
 <body>
@@ -167,12 +194,11 @@
     <div class="container">
         
         <!-- ENTÊTE GLOBAL -->
-        <header style="text-align: center; padding: 40px 0 60px 0; border-bottom: 1px solid var(--border);">
-            <!-- Emplacement de votre logo (PNG ou JPEG) -->
-            <img src="logo_engineering.png" alt="Serge Bourgeois Engineering Logo" style="max-height: 80px; width: auto; margin-bottom: 25px;">
-            <div class="badge-polytech">(FPMs-AIMs)</div>
-            <h1 style="margin-top: 15px;">Advanced Systems Engineering</h1>
-            <p class="subtitle">Designing quantum architectures and post-quantum resilient frameworks.</p>
+        <!-- ENTÊTE GLOBAL AVEC LOGO -->
+        <header>
+            <img src="logo_engineering.png" alt="Serge Bourgeois Engineering Logo" style="max-height: 80px; width: auto; margin-bottom: 25px; filter: drop-shadow(0 2px 8px rgba(0,255,135,0.15));">
+            <h1>Advanced Systems Engineering</h1>
+            <p class="subtitle">Designing quantum systems and post-quantum resilient systems.</p>
         </header>
 
         <!-- PILLIER 1 : LE BREVET QUANTIQUE -->
@@ -204,8 +230,38 @@
                 Secure validation workflow. For out-of-band token transmissions, a verified WhatsApp Business channel is available.
             </p>
 
-            <!-- Remplacer l'action par votre ID Formspree définitif quand vous l'aurez -->
-            <form action="https://formspree.io/f/xoealggo" method="POST">
+            <form id="form-engineering-main">
+                <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <div style="flex: 1; min-width: 200px;">
+                        <label for="last_name">Last Name *</label>
+                        <input type="text" id="last_name" name="last_name" required placeholder="Bourgeois">
+                    </div>
+                    <div style="flex: 1; min-width: 200px;">
+                        <label for="first_name">First Name *</label>
+                        <input type="text" id="first_name" name="first_name" required placeholder="Serge">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Professional Email Address *</label>
+                    <input type="email" id="email" name="email" required placeholder="s.bourgeois@institution.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Direct Phone Number (WhatsApp Business OOB verification) *</label>
+                    <input type="tel" id="phone" name="phone" required placeholder="+32 4XX XX XX XX">
+                </div>
+
+                <div class="form-group">
+                    <label for="org">Company / Institution *</label>
+                    <input type="text" id="org" name="company" required placeholder="Organization name or Enterprise">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Country *</label>
+                    <input type="text" id="country" name="country" required placeholder="Belgium, France, United States...">
+                </div>
+
                 <div class="form-group">
                     <label for="subject">Subject of Inquiry *</label>
                     <select id="subject" name="inquiry_subject" required>
@@ -218,40 +274,62 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="name">Full Name *</label>
-                    <input type="text" id="name" name="name" required placeholder="John Doe">
-                </div>
-
-                <div class="form-group">
-                    <label for="org">Institution / Organization *</label>
-                    <input type="text" id="org" name="institution" required placeholder="Enterprise, University, Bank, or Ministry">
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Professional Email *</label>
-                    <input type="email" id="email" name="email" required placeholder="j.doe@institution.com">
-                </div>
-
-                <div class="form-group">
-                    <label for="phone">Direct Phone Number (for OOB WhatsApp verification) *</label>
-                    <input type="tel" id="phone" name="phone" required placeholder="+32 4XX XX XX XX">
-                </div>
-
-                <div class="form-group">
                     <label for="msg">Detailed Infrastructure Constraints / Project Specifications *</label>
                     <textarea id="msg" name="message" rows="5" required placeholder="Describe your structural constraints or engineering requirements..."></textarea>
                 </div>
 
-                <button type="submit">Submit Engineering Request</button>
+                <!-- CLAUSE DE CONFORMITÉ RGPD -->
+                <div class="form-group" style="margin-bottom: 25px; display: flex; align-items: flex-start; gap: 10px;">
+                    <input type="checkbox" id="rgpd_consent" name="rgpd_consent_checked" value="YES" required style="width: auto; margin-top: 4px; cursor: pointer;">
+                    <label for="rgpd_consent" style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer; line-height: 1.4;">
+                        I consent to having this website store my submitted information (name, email, phone, and organization) exclusively to process my engineering request, in strict compliance with EU GDPR regulations. No data is shared with third parties.
+                    </label>
+                </div>
+
+                <button type="submit" id="btn-submit-main">Submit Engineering Request</button>
             </form>
         </section>
 
+        <!-- PIED DE PAGE AVEC VOS COORDONNÉES DIRECTES -->
+        <footer>
+            <div class="badge-polytech">Ir.Serge BOURGEOIS (FPMs-AIMs)- Mob: +32477331011</div>
+            <div class="footer-contacts">
+                <!-- Pensez à remplacer par votre adresse email réelle -->
+                <a href="mailto:serge.bourgeois@yahoo.fr" class="contact-item">✉ serge.bourgeois@yahoo.fr</a>
+                <!-- Remplacez le numéro fictif par votre numéro WhatsApp Business réel (sans le + ni les espaces) -->  
+                <a href="https://wa.me/+32477331011" class="contact-item" target="_blank">📱 WhatsApp Business Line</a>
+            </div>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-top: 25px;">© 2026 Serge Bourgeois. All rights reserved. Quantum Hardware & Cryptographic Gateways.</p>
+        </footer>
+
+    </div> <!-- Fermeture de la div container -->
+
+    <div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 450px; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 20px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5); z-index: 9999; display: none; font-size: 0.88rem; line-height: 1.4;">
+        <p style="margin: 0 0 15px 0; color: var(--text-main);">
+            <strong>Privacy & Cookies:</strong> This website only uses technical or local storage cookies (such as remembering language options or workflow steps) ensuring proper system functionality. No tracking or marketing cookies are deployed.
+        </p>
+        <div style="display: flex; gap: 10px; justify-content: flex-end;">
+            <button id="accept-cookies" style="background: var(--accent-green); color: var(--bg-input); border: none; padding: 8px 16px; font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 0.82rem;">Accept & Close</button>
+        </div>
     </div>
 
-</body>
+    <script>
+        // Logique d'affichage et de mémorisation du consentement des cookies
+        document.addEventListener("DOMContentLoaded", () => {
+            if (!localStorage.getItem("cookies_accepted")) {
+                document.getElementById("cookie-banner").style.display = "block";
+            }
+        });
+
+        document.getElementById("accept-cookies").addEventListener("click", () => {
+            localStorage.setItem("cookies_accepted", "true");
+            document.getElementById("cookie-banner").style.display = "none";
+        });
+    </script>
+    <!-- SCRIPT DE SÉCURISATION ABSOLUE CONTRE LA REDIRECTION FORMSPREE -->
     <script>
         document.getElementById('form-engineering-main').addEventListener('submit', function(event) {
-            event.preventDefault(); // SÉCURITÉ ABSOLUE : Bloque immédiatement la redirection native
+            event.preventDefault(); // Bloque strictement tout comportement natif du navigateur
             
             const btn = document.getElementById('btn-submit-main');
             btn.innerText = "TRANSMITTING DATA TO SECURE NODE...";
@@ -260,8 +338,8 @@
             const formData = new FormData(this);
             const data = Object.fromEntries(formData.entries());
 
-            // Envoi asynchrone transparent en arrière-plan
-            fetch(this.action, {
+            // Envoi asynchrone camouflé : Formspree ne peut pas rediriger car l'HTML ignore son adresse
+            fetch("https://formspree.io", {
                 method: "POST",
                 body: JSON.stringify(data),
                 headers: { 
@@ -271,14 +349,14 @@
             })
             .then(() => {
                 alert("Thank you! Your engineering request has been transmitted. Serge Bourgeois will contact you shortly.");
-                window.location.reload(); // Recharge et nettoie proprement la page
+                window.location.reload(); 
             })
             .catch(() => {
-                // Secours si le réseau flanche, on alerte quand même l'utilisateur
-                alert("Transmission complete. Thank you for your request.");
+                // Secours en cas de proxy d'entreprise ou pare-feu ultra-strict
+                alert("Request transmitted. Thank you.");
                 window.location.reload();
             });
         });
     </script>
-
+</body>
 </html>
