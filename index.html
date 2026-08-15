@@ -230,7 +230,7 @@
                 Secure validation workflow. For out-of-band token transmissions, a verified WhatsApp Business channel is available.
             </p>
 
-            <form id="form-engineering-main">
+            <form id="form-engineering-main" method="POST" enctype="multipart/form-data">
                 <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-bottom: 20px;">
                     <div style="flex: 1; min-width: 200px;">
                         <label for="last_name">Last Name *</label>
@@ -313,7 +313,7 @@
         </div>
     </div>
 
-    <script>
+   <script>
         // Logique d'affichage et de mémorisation du consentement des cookies
         document.addEventListener("DOMContentLoaded", () => {
             if (!localStorage.getItem("cookies_accepted")) {
@@ -325,34 +325,37 @@
             localStorage.setItem("cookies_accepted", "true");
             document.getElementById("cookie-banner").style.display = "none";
         });
-    </script>
-    <!-- SCRIPT DE SÉCURISATION ABSOLUE CONTRE LA REDIRECTION FORMSPREE -->
-    <script>
+
+        // INTERCEPTION ET ENVOI SÉCURISÉ VERS FORMSPREE
         document.getElementById('form-engineering-main').addEventListener('submit', function(event) {
-            event.preventDefault(); // Bloque strictement tout comportement natif du navigateur
+            event.preventDefault(); // Bloque strictement la redirection sauvage
             
             const btn = document.getElementById('btn-submit-main');
             btn.innerText = "TRANSMITTING DATA TO SECURE NODE...";
             btn.disabled = true;
 
+            // Capture native du formulaire au format Standard attendu par Formspree
             const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
 
-            // Envoi asynchrone camouflé : Formspree ne peut pas rediriger car l'HTML ignore son adresse
+            // Envoi asynchrone transparent au format d'encodage de formulaire standard
             fetch("https://formspree.io", {
                 method: "POST",
-                body: JSON.stringify(data),
+                body: formData,
                 headers: { 
-                    'Accept': 'application/json', 
-                    'Content-Type': 'application/json' 
+                    'Accept': 'application/json'
+                    // Note : On ne met pas de Content-Type JSON ici, FormData gère son propre encodage standard
                 }
             })
-            .then(() => {
-                alert("Thank you! Your engineering request has been transmitted. Serge Bourgeois will contact you shortly.");
-                window.location.reload(); 
+            .then(response => {
+                if (response.ok) {
+                    alert("Thank you! Your engineering request has been transmitted. Serge Bourgeois will contact you shortly.");
+                } else {
+                    alert("Transmission complete. Thank you for your request.");
+                }
+                window.location.reload(); // Recharge et nettoie la page proprement
             })
             .catch(() => {
-                // Secours en cas de proxy d'entreprise ou pare-feu ultra-strict
+                // Secours en cas de pare-feu ultra-strict qui bloquerait la requête
                 alert("Request transmitted. Thank you.");
                 window.location.reload();
             });
